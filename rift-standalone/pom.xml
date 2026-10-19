@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>de.raindancer.modules</groupId>
+        <artifactId>rift-build</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>rift-standalone</artifactId>
+    <!-- Published at the plugin's own version. -->
+    <version>${plugin.version}</version>
+    <packaging>jar</packaging>
+
+    <name>Rain's Rift</name>
+    <description>
+        Rain's Rift, as a plugin of its own: the rift module and the standard wrapper shaded together.
+    </description>
+
+    <properties>
+        <!-- The name the server sees, and the name of its data folder. -->
+        <plugin.name>RainsRift</plugin.name>
+
+        <!-- 0.1.0: the first release. /rift (alias /pv): a personal vault of 36-stack pages — free pages for active
+             playtime, more bought (Core's BuyableSlots), bonus pages by permission; search, filter by kind, sort once
+             or keep sorted, sell this page or everything shown through Core's ItemSales (RainsEconomy 0.49.0). -->
+        <plugin.version>0.1.0</plugin.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>de.raindancer.modules</groupId>
+            <artifactId>rift-module</artifactId>
+            <!-- A new feature, not (yet) in the framework parent's dependencyManagement. -->
+            <version>${rift-module.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.raindancer.modules</groupId>
+            <artifactId>modules-wrapper</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${plugin.name}-${plugin.version}</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <!-- The descriptor names the version, and a version written twice is one that drifts. -->
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+            </plugin>
+            <!--
+              StandaloneJarTest reads the jar this build produces, so it has to run after it exists.
+              Surefire bound to a later phase rather than failsafe, which is one more plugin to have
+              cached — this build has to work offline.
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>default-test</id>
+                        <phase>none</phase>
+                    </execution>
+                    <execution>
+                        <id>after-the-jar-exists</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <configuration>
+                            <skipTests>false</skipTests>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

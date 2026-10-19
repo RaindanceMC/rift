@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>de.raindancer.modules</groupId>
+        <artifactId>rift-build</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>rift-module</artifactId>
+    <version>${rift-module.version}</version>
+    <packaging>jar</packaging>
+
+    <name>Rain's Flexible Modules — Rift</name>
+    <description>
+        A pocket dimension every player can open: a personal vault of pages that grows as they play — free pages for
+        time played, more bought with money, bonus pages by permission. Search it, filter it by kind, sort it once or
+        keep it sorted, and sell a page or everything shown to the shop.
+    </description>
+
+    <dependencies>
+        <dependency>
+            <groupId>de.raindancer.modules</groupId>
+            <artifactId>modules-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>de.raindancer.modules</groupId>
+            <artifactId>modules-api</artifactId>
+            <type>test-jar</type>
+            <version>${modules-api.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- RainsCore's testkit: real ItemStacks without a server. -->
+        <dependency>
+            <groupId>de.raindancer</groupId>
+            <artifactId>RainsCore</artifactId>
+            <version>${rainscore.version}</version>
+            <classifier>tests</classifier>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>

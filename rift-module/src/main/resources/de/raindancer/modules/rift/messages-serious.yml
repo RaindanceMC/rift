@@ -1,0 +1,16 @@
+# The serious wording for this module: the same keys as messages.yml, said plainly,
+# for a server whose Message tone (Core's /settings, Appearance) is SERIOUS.
+# Only lines that differ are here.
+
+rift:
+  only-a-player: "<red>Only a player can open a rift."
+  not-allowed: "<red>You may not open a rift."
+  sort:
+    done: "<green>Rift sorted <white><order></white>."
+    already: "<gray>The rift is already sorted <white><order></white>."
+  sell:
+    wait: "<yellow>Please wait a moment between sales."
+  page:
+    grew: "<light_purple>Your rift now has <white><pages></white> page(s)."
+    bought: "<light_purple>Page <white><page></white> bought for <white><price></white>."
+    maxed: "<yellow>Your rift has the most pages allowed."
