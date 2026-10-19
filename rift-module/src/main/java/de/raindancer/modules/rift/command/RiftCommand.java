@@ -36,10 +36,6 @@ public final class RiftCommand implements IRiftCommand {
             live.messages().send(player, "rift.not-allowed");
             return;
         }
-        if (args.length == 1 && args[0].equalsIgnoreCase("story")) {
-            live.story().open(player);
-            return;
-        }
         if (args.length == 1 && args[0].equalsIgnoreCase("sort")) {
             live.rift().resize(player.getUniqueId());
             live.rift().sort(player, live.rift().prefs(player.getUniqueId()).sort());
@@ -52,7 +48,7 @@ public final class RiftCommand implements IRiftCommand {
     public @NotNull Collection<String> suggest(@NotNull CommandSourceStack source, String @NotNull [] args) {
         if (args.length <= 1) {
             String started = args.length == 0 ? "" : args[0].toLowerCase(Locale.ROOT);
-            return java.util.stream.Stream.of("sort", "story").filter(word -> word.startsWith(started)).toList();
+            return "sort".startsWith(started) ? List.of("sort") : List.of();
         }
         return List.of();
     }

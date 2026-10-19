@@ -280,14 +280,7 @@ public final class RiftMenu extends Menu implements IRiftScreen {
         if (pages.full()) {
             lore.add("<green>As big as a rift gets.");
         }
-        lore.add("");
-        lore.add("<gray>Right click: the Rift's story <dark_gray>(" + new de.raindancer.modules.rift.rules.StoryRule()
-                .unlocked(pages.total()) + " of " + de.raindancer.modules.rift.rules.StoryRule.FRAGMENTS + " fragments)");
         toolbar(7, Icons.of(Material.ENDER_EYE, "<light_purple>Pages", lore), event -> {
-            if (event.isRightClick()) {
-                services.story().open(viewer);
-                return;
-            }
             if (price.isEmpty() || !stillAllowed()) {
                 if (price.isEmpty()) {
                     services.messages().send(viewer, pages.full() ? "rift.page.maxed" : "rift.page.not-for-sale");
@@ -310,7 +303,6 @@ public final class RiftMenu extends Menu implements IRiftScreen {
                         services.effects().play(viewer.getUniqueId(), Cues.REWARD);
                         services.messages().send(viewer, "rift.page.bought", "page", String.valueOf(number),
                                 "price", Fees.format(purchase.paid()));
-                        services.story().grew(viewer, number);
                     } else {
                         services.effects().play(viewer.getUniqueId(), Cues.NO);
                         services.messages().send(viewer, "rift.page." + outcomeKey(purchase.outcome()));

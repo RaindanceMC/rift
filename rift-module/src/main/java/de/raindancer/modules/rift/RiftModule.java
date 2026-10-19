@@ -40,7 +40,7 @@ import java.util.UUID;
  */
 public final class RiftModule implements FlexModule {
 
-    private static final ModuleInfo INFO = ModuleInfo.of("rift", "Rift", "0.2.0")
+    private static final ModuleInfo INFO = ModuleInfo.of("rift", "Rift", "0.2.1")
             .describedAs("A pocket dimension for your things: a vault of pages that grows with playtime and money, "
                     + "with search, kinds, sorting and selling.")
             .by("Raindancer118");
@@ -87,9 +87,7 @@ public final class RiftModule implements FlexModule {
         });
 
         services = new RiftServices(plugin, plugin.getServer(), log, context.core().messages(), context.chat().brand(),
-                context.core(), settings::current, settings, rift, pages,
-                new de.raindancer.modules.rift.service.StoryService(rift, pages, context.core().messages()),
-                sellWait, new LiveScreens());
+                context.core(), settings::current, settings, rift, pages, sellWait, new LiveScreens());
 
         context.listener(new RiftPlayerListener(services));
         RiftCommands.ready(services);
@@ -99,7 +97,6 @@ public final class RiftModule implements FlexModule {
                 Scheduling.entity(plugin, online, () -> pages.noticed(online).ifPresent(total -> {
                     rift.resize(online.getUniqueId());
                     services.messages().send(online, "rift.page.grew", "pages", String.valueOf(total));
-                    services.story().grew(online, total);
                 }));
             }
         });
@@ -122,7 +119,6 @@ public final class RiftModule implements FlexModule {
         @Override
         public void rift(Player viewer, String search) {
             new RiftMenu(services, viewer, null, Filter.NONE.searching(search)).open();
-            services.story().firstLook(viewer);
         }
     }
 

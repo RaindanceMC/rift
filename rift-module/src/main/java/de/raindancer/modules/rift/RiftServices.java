@@ -29,7 +29,6 @@ public record RiftServices(
 
         RiftService rift,
         PageService pages,
-        de.raindancer.modules.rift.service.StoryService story,
         Cooldowns<UUID> sellWait,
         IRiftScreensOpener screens) {
 
