@@ -32,3 +32,50 @@ rift:
     no-economy: "<red>There is no economy here to pay for a page with."
     refused: "<red>The payment for the page was refused, so nothing was charged."
     not-saved: "<red>The new page could not be written down, so you were paid back."
+
+  # The Rift's story, "Notes from the Fold": one fragment per page a rift can have, so it is read as the rift grows.
+  # /rift story opens it as a book; a fragment not reached yet shows as torn out.
+  story:
+    title: "<dark_purple>Notes from the Fold"
+    author: "<gray>Vell, mostly"
+    intro: "<light_purple>Your rift hums. It has a story, and it tells it a page at a time. <click:run_command:/rift story><white><u>Read it: /rift story</u></white></click>"
+    unlocked: "<light_purple>A new fragment surfaced in your rift: <white><number> · <title></white>. <click:run_command:/rift story><gray><u>/rift story</u></gray></click>"
+    cover: "<dark_purple><bold>Notes from the Fold</bold></dark_purple><newline><newline><black>What is known about the Rift, set down by the one who found it.<newline><newline><dark_gray><unlocked> of <all> fragments surfaced.<newline>A rift tells one more with every page it grows."
+    page-head: "<dark_gray>— <number> —"
+    locked: "<dark_gray>— <number> —<newline><newline><dark_gray><italic>torn out</italic><newline><newline><dark_gray>This part of the story is still folded shut. It opens with page <number> of your rift."
+    fragment-1:
+      title: "<dark_purple><bold>The Crack"
+      text: "<black>Vell never threw anything away. One night her pickaxe struck a seam in the world, thin as a hair, humming. She put a cobblestone into it. It stayed. It is there still."
+    fragment-2:
+      title: "<dark_purple><bold>The Fold"
+      text: "<black>The seam was no hole. It was a fold, a crease where the world tucks away what it has no room for. Everybody carries one, folded so small they never notice. Yours has just opened."
+    fragment-3:
+      title: "<dark_purple><bold>Why it grows"
+      text: "<black>A fold feeds on time. The longer you walk the world, the better it knows you and the wider it opens. Vell spent years down there. Her rift was the size of a cathedral. Mostly cobblestone."
+    fragment-4:
+      title: "<dark_purple><bold>The Tollkeeper"
+      text: "<black>Deep in the fold lives something that collects coins. It has nothing to buy. Pay it, and it tears a new page open for you. It is greedy and it learns: every page costs twice the last."
+    fragment-5:
+      title: "<dark_purple><bold>The Sorting"
+      text: "<black>Left alone, a rift tidies itself. Not out of love for order: it hates being looked at while messy. Vell swore it rearranged itself every time she blinked."
+    fragment-6:
+      title: "<dark_purple><bold>Echoes"
+      text: "<black>Say a word into your rift and everything that sounds like it answers. Vell called it asking the fold. In all those years it never once found her missing left boot."
+    fragment-7:
+      title: "<dark_purple><bold>The Seam to Market"
+      text: "<black>The fold touches every shop in the world at once. That is how it sells a page of your things without you lifting a finger. The shopkeepers have complained. The fold does not care."
+    fragment-8:
+      title: "<dark_purple><bold>What it will not take"
+      text: "<black>Some things refuse to be folded: what is bound to one soul, and what is insured and therefore homesick. The rift hands them back. Do not take it personally."
+    fragment-9:
+      title: "<dark_purple><bold>Vell's Mistake"
+      text: "<black>Once, Vell tried to climb into her own rift. The fold, being polite, made room. She came back out three days later holding a single stick, and never spoke of it again."
+    fragment-10:
+      title: "<dark_purple><bold>Other Folds"
+      text: "<black>Every rift is its owner's alone. On quiet nights, though, you can feel the others: a faint hum through the bedrock, like somebody else's refrigerator."
+    fragment-11:
+      title: "<dark_purple><bold>The Eleventh Page"
+      text: "<black>By now the fold knows your hands. It offers things before you reach for them. This is either a gift or a warning. Scholars disagree. The scholars are mostly Vell."
+    fragment-12:
+      title: "<dark_purple><bold>The Seal"
+      text: "<black>At twelve pages the fold stops. Not because it cannot go further: beyond twelve it would have to fold you, too. It likes you too much for that. Probably."

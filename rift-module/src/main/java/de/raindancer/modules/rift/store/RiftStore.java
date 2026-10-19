@@ -50,6 +50,7 @@ public final class RiftStore {
         return prefsFile.update(yaml -> {
             yaml.set(player + ".sort", changed.sort().key());
             yaml.set(player + ".auto-sort", changed.autoSort());
+            yaml.set(player + ".story-told", changed.told());
         });
     }
 
@@ -65,7 +66,7 @@ public final class RiftStore {
             for (String key : yaml.getKeys(false)) {
                 try {
                     prefs.put(UUID.fromString(key), new Prefs(SortMode.parse(yaml.getString(key + ".sort")),
-                            yaml.getBoolean(key + ".auto-sort")));
+                            yaml.getBoolean(key + ".auto-sort"), yaml.getInt(key + ".story-told")));
                 } catch (IllegalArgumentException notAnId) {
                     // Only ever written here; skipped rather than trusted.
                 }

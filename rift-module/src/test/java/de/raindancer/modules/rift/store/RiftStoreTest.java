@@ -27,10 +27,11 @@ class RiftStoreTest {
         RiftStore store = new RiftStore(folder, new ItemText(new PlainBytes()));
         assertThat(store.prefs(lilly)).isEqualTo(Prefs.DEFAULTS);
 
-        store.prefs(lilly, new Prefs(SortMode.AMOUNT, true));
+        store.prefs(lilly, new Prefs(SortMode.AMOUNT, true, 4));
 
         RiftStore again = new RiftStore(folder, new ItemText(new PlainBytes()));
-        assertThat(again.prefs(lilly)).isEqualTo(new Prefs(SortMode.AMOUNT, true));
+        assertThat(again.prefs(lilly)).as("the fragments already told are kept too")
+                .isEqualTo(new Prefs(SortMode.AMOUNT, true, 4));
         assertThat(again.prefs(other)).isEqualTo(Prefs.DEFAULTS);
     }
 

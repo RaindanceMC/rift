@@ -23,7 +23,8 @@ public final class RiftCommands {
                                 new RiftCommand(RiftCommands::require))
                         .aliased("pv", "playervault")
                         .taking("[search words]")
-                        .taking("sort"));
+                        .taking("sort")
+                        .taking("story"));
     }
 
     static void ready(RiftServices live) {
