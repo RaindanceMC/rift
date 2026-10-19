@@ -51,12 +51,12 @@ public record RiftSettings(
         boolean pagesForSale,
 
         @In("rift/pages") @Title("The first bought page costs")
-        @Describe("Money, such as 2500 or 2.5k. Each further page costs the percentage below more.")
+        @Describe("Money, such as 5000 or 5k. Each further page costs the percentage below more.")
         @Key("pages.price")
         String pagePrice,
 
         @In("rift/pages") @Title("Each bought page costs this much more") @Range(min = 0, max = 1000)
-        @Describe("Percent on top of the one before, so with 50 the third page costs 2.25 times the first.")
+        @Describe("Percent on top of the one before, so with 100 every page costs double the one before.")
         @Key("pages.price-growth-percent")
         int pagePriceGrowthPercent,
 
@@ -71,7 +71,7 @@ public record RiftSettings(
         @Key("selling.wait-seconds")
         int sellWaitSeconds) {
 
-    public static final RiftSettings DEFAULTS = new RiftSettings(1, 12, 6, 3, true, "2500", 50, true, 2);
+    public static final RiftSettings DEFAULTS = new RiftSettings(1, 12, 6, 3, true, "5000", 100, true, 2);
 
     public int mostPagesClamped() {
         return Math.max(1, Math.min(100, mostPages));

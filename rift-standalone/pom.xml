@@ -26,7 +26,7 @@
 
         <!-- 0.1.0: the first release. /rift (alias /pv): a personal vault of 36-stack pages — free pages for active
              playtime, more bought (Core's BuyableSlots), bonus pages by permission; search, filter by kind, sort once
-             or keep sorted, sell this page or everything shown through Core's ItemSales (RainsEconomy 0.49.0). -->
+             or keep sorted, sell this page or everything shown through Core's ItemSales (RainsEconomy 0.49.0). Bought pages: 5,000 for the first, each after double. -->
         <plugin.version>0.1.0</plugin.version>
     </properties>
 

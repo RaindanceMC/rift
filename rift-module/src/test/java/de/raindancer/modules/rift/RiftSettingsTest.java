@@ -29,6 +29,18 @@ class RiftSettingsTest {
     }
 
     @Test
+    @DisplayName("pages are dear: the first bought one is 5,000 and each after costs double")
+    void pagesAreDear() {
+        var terms = defaults.pageBuying();
+
+        assertThat(terms.price()).isEqualTo(de.raindancer.core.social.economy.Fees.amount("5000"));
+        assertThat(terms.growthPercent()).isEqualTo(100);
+        assertThat(de.raindancer.core.social.economy.BuyableSlots.priceOfNext(terms.price(), terms.growthPercent(), 7))
+                .as("the eighth bought page")
+                .isEqualTo(Money.of(terms.price().minor() * 128));
+    }
+
+    @Test
     @DisplayName("nonsense in the file is clamped rather than believed")
     void clamped() {
         assertThat(defaults.withMostPages(0).mostPagesClamped()).isEqualTo(1);
