@@ -40,7 +40,7 @@ import java.util.UUID;
  */
 public final class RiftModule implements FlexModule {
 
-    private static final ModuleInfo INFO = ModuleInfo.of("rift", "Rift", "0.2.1")
+    private static final ModuleInfo INFO = ModuleInfo.of("rift", "Rift", "0.2.2")
             .describedAs("A pocket dimension for your things: a vault of pages that grows with playtime and money, "
                     + "with search, kinds, sorting and selling.")
             .by("Raindancer118");

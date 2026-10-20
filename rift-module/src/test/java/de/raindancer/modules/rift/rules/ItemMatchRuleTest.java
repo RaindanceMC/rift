@@ -1,8 +1,8 @@
 package de.raindancer.modules.rift.rules;
 
+import de.raindancer.core.content.items.ItemWords;
 import de.raindancer.core.ui.choose.Category;
 import de.raindancer.modules.rift.model.Filter;
-import de.raindancer.modules.rift.model.Searchable;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -15,9 +15,9 @@ class ItemMatchRuleTest {
 
     private final ItemMatchRule rule = new ItemMatchRule();
 
-    private final Searchable sword = new Searchable("Diamond Sword", "Excalibur",
+    private final ItemWords sword = new ItemWords("Diamond Sword", "Excalibur",
             List.of("Sharpness V", "Mending"), Category.COMBAT);
-    private final Searchable logs = new Searchable("Oak Log", null, List.of(), Category.BUILDING_BLOCKS);
+    private final ItemWords logs = new ItemWords("Oak Log", null, List.of(), Category.BUILDING_BLOCKS);
 
     @Test
     @DisplayName("no search and no kind shows everything")

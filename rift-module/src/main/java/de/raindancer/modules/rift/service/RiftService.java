@@ -1,5 +1,6 @@
 package de.raindancer.modules.rift.service;
 
+import de.raindancer.core.content.items.ItemWords;
 import de.raindancer.core.data.stash.Stash;
 import de.raindancer.core.social.economy.ItemSales;
 import de.raindancer.core.ui.messages.Messages;
@@ -10,7 +11,6 @@ import de.raindancer.modules.rift.model.SortMode;
 import de.raindancer.modules.rift.rules.ItemMatchRule;
 import de.raindancer.modules.rift.rules.SortRule;
 import de.raindancer.modules.rift.store.RiftStore;
-import de.raindancer.modules.rift.util.ItemFacts;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
@@ -104,7 +104,7 @@ public final class RiftService implements IRiftService {
         List<Entry> shown = new ArrayList<>(items.size());
         for (int index = 0; index < items.size(); index++) {
             ItemStack item = items.get(index);
-            if (!filter.isActive() || matching.matches(ItemFacts.searchable(item), filter)) {
+            if (!filter.isActive() || matching.matches(ItemWords.of(item), filter)) {
                 shown.add(new Entry(index, item));
             }
         }
@@ -292,7 +292,7 @@ public final class RiftService implements IRiftService {
 
     private Comparator<ItemStack> order(SortMode mode) {
         Comparator<de.raindancer.modules.rift.model.SortKey> keys = sorting.order(mode);
-        return (one, other) -> keys.compare(ItemFacts.sortKey(one), ItemFacts.sortKey(other));
+        return (one, other) -> keys.compare(sortKey(one), sortKey(other));
     }
 
     private void save(UUID owner) {
@@ -342,5 +342,11 @@ public final class RiftService implements IRiftService {
     @Override
     public String describe() {
         return "everybody's rift: in, out, search, sort and sell";
+    }
+
+    /** Sorted by what a player reads: the given name when there is one, otherwise the material's. */
+    private static de.raindancer.modules.rift.model.SortKey sortKey(org.bukkit.inventory.ItemStack item) {
+        ItemWords words = ItemWords.of(item);
+        return new de.raindancer.modules.rift.model.SortKey(words.kind(), words.shown(), item.getAmount());
     }
 }
