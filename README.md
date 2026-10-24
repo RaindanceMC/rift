@@ -21,7 +21,7 @@ Needs Java 25 and read access to `packages.tstieh.de` (server ids `packages-rele
 
 ## Plugins
 
-- `rift-standalone/target/RainsRift-0.2.2.jar` — also published as `de.raindancer.modules:rift-standalone:0.2.2`
+- `rift-standalone/target/RainsRift-0.3.0.jar` — also published as `de.raindancer.modules:rift-standalone:0.3.0`
 
 ## Versions
 

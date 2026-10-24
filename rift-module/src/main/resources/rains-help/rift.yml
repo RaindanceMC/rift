@@ -1,0 +1,88 @@
+id: rift
+title: Your Rift
+summary: A pocket dimension for your things — pages that grow with playtime, search, sorting and selling.
+intro: |
+  Pockets full again? Of course they are. {cmd:/rift} opens <white>your own rift</white>: a private vault that nobody else can touch, that follows you everywhere and that grows the longer you stay. I have been told it is bigger on the inside.
+icon: ENDER_CHEST
+category: Items & enchantments
+order: 10
+module: rift
+aliases: [rift, pv, playervault, vault, storage, stash, pages]
+keywords: [chest, inventory, store, sort, search, pocket, dimension, space, backpack]
+commands: [rift]
+related: [shop]
+sections:
+  - question: What is the rift?
+    title: What it is
+    text: |
+      Your very own storage, one per player, opened with {run:/rift} (also <white>/pv</white> and <white>/playervault</white>). Whatever you put in stays in, through death, logouts and restarts — it is not in your inventory, so dying cannot spill it.
+
+      It is made of <white>pages</white>. One page is 36 stacks. A stack here is exactly a stack there: nothing is duplicated and nothing is lost.
+  - question: How do I put things in?
+    title: Putting things in
+    text: |
+      Three ways:
+      <white>•</white> <white>Shift-click</white> an item in your own inventory while the rift is open.
+      <white>•</white> Drop the item you hold on the cursor onto any slot of the page.
+      <white>•</white> Click the chest <white>Put everything in</white>: your inventory goes in, but not the hotbar. Shift-click it and the hotbar goes too. What you wear always stays on you.
+
+      If the rift is full, whatever does not fit stays with you. Nothing falls on the floor.
+  - question: How do I take things out?
+    title: Taking things out
+    text: |
+      Click a stack to take it into your inventory. The hopper button <white>Take out</white> takes everything on the current page; shift-click it and it takes everything in the rift — or everything your search found, if you are searching.
+
+      If your pockets are full, what does not fit is sent back to the rift. Rifts are tidier than people.
+  - question: How do I find something?
+    title: Searching
+    text: |
+      Click the compass and type what you want, or type it right away: {cmd:/rift <words>} opens the rift already searching. The search looks at item names, names you gave items, enchantments, potions and lore. Shift-click the compass to stop searching.
+
+      While you search, <white>Take out</white> and <white>Sell</white> work on what was found, not on the whole rift.
+  - question: What are kinds?
+    title: Kinds
+    text: |
+      The button next to the compass narrows the rift to one kind of item — the same tabs the creative inventory has: blocks, tools, food and so on. Click for the next kind, right-click for the one before, shift-click for everything again. It combines with a search.
+  - question: How do I sort my rift?
+    title: Sorting
+    text: |
+      The comparator button sorts the rift. Click: sort now. Right-click: change the order — <white>by kind</white>, <white>A to Z</white> or <white>biggest stacks first</white>. Shift-click: <white>keep it sorted</white> on or off, so everything you put in lands in its place by itself.
+
+      Do not even open it: {cmd:/rift sort} sorts in your own order without opening anything. Your order and the keep-sorted choice are remembered.
+  - question: How many pages do I get?
+    title: Pages
+    text: |
+      You start with <white>{setting:rift:pages.starting}</white> page(s). More come four ways:
+      <white>•</white> {if:rift:pages.free-every-hours > 0}<white>Playtime:</white> one free page for every <white>{setting:rift:pages.free-every-hours|hours}</white> you actually play — time spent away does not count — up to <white>{setting:rift:pages.most-free}</white> free page(s) in all.{else}<white>Playtime:</white> not on this server; nobody gets free pages.{/if}
+      <white>•</white> {if:rift:pages.buying}<white>Buying</white> with money, see below.{else}<white>Buying:</white> not possible here.{/if}
+      <white>•</white> <white>A rank's bonus</white> from the staff, as extra pages on top.
+
+      Whatever the way, one rift never has more than <white>{setting:rift:pages.most}</white> pages. The page button (the ender eye) shows where you stand, how many came from where and when the next free page arrives. You are told in chat when your rift grows.
+  - question: Can I buy pages?
+    title: Buying pages
+    when: rift:pages.buying
+    text: |
+      Yes. The ender eye shows the price of the next page; click it and confirm. The first bought page costs <white>{setting:rift:pages.price|money}</white>{if:rift:pages.price-growth-percent > 0}, and every further one costs <white>{setting:rift:pages.price-growth-percent|percent}</white> more than the one before it{/if}. Bought pages are yours for good.
+
+      If you cannot afford it, nothing is charged. If your rift already has the most pages, there is nothing left to buy.
+  - question: Can I sell from my rift?
+    title: Selling
+    when: rift:selling.enabled && @module:economy
+    permission: rains.rift.sell
+    text: |
+      Yes: the emerald button. Click it to sell what the shop buys on this page, or shift-click to sell everything in the rift (or everything found) — that one asks first.
+
+      Only plain items are sold, at your own {cmd:/sell} prices; anything the shop does not buy stays in the rift. Between two sales you wait <white>{setting:rift:selling.wait-seconds|seconds}</white>, so a held-down click cannot flood the shop. If the shop refuses a stack, it goes back into the rift, not into the void.
+  - question: What if I lose the right to it?
+    title: Permissions
+    text: |
+      Opening the rift needs <white>rains.rift.use</white>, which everybody has unless staff took it away. The window checks this on every click, so a withdrawn permission closes it at once. Your items stay safe in the file until you may open it again.
+  - question: What happens when the pages get fewer?
+    title: Shrinking
+    text: |
+      If the limit is lowered or a bonus ends, <white>nothing is deleted</white>. A rift that holds more than it now may keeps everything and simply refuses new things until it is under the limit again.
+  - question: How do I grant bonus pages?
+    title: Bonus pages (staff)
+    permission: rainscore.help.manage
+    text: |
+      Give a player or a group the node <white>rains.rift.pages.N</white> — for example <white>rains.rift.pages.3</white> for three extra pages. If somebody holds several, the <white>highest</white> counts, not the sum. The total is still capped by <white>{setting:rift:pages.most}</white> pages. {cmd:/settings} holds all the numbers.
