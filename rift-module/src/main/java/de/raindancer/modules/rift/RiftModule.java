@@ -40,7 +40,7 @@ import java.util.UUID;
  */
 public final class RiftModule implements FlexModule {
 
-    private static final ModuleInfo INFO = ModuleInfo.of("rift", "Rift", "0.3.0")
+    private static final ModuleInfo INFO = ModuleInfo.of("rift", "Rift", "0.4.0")
             .describedAs("A pocket dimension for your things: a vault of pages that grows with playtime and money, "
                     + "with search, kinds, sorting and selling.")
             .by("Raindancer118");
@@ -88,6 +88,17 @@ public final class RiftModule implements FlexModule {
 
         services = new RiftServices(plugin, plugin.getServer(), log, context.core().messages(), context.chat().brand(),
                 context.core(), settings::current, settings, rift, pages, sellWait, new LiveScreens());
+
+        // Screens for /screen — Core 2.10.0; on an older Core there are simply none.
+        try {
+            var screens = context.core().screens();
+            if (screens != null) {
+                new de.raindancer.modules.rift.service.RiftScreens(pages, rift).register(screens, plugin);
+                context.closeWith(() -> de.raindancer.modules.rift.service.RiftScreens.KINDS.forEach(screens::unregister));
+            }
+        } catch (LinkageError olderCore) {
+            log.info("RainsCore is older than 2.10.0: no rift screen until it is updated.");
+        }
 
         context.listener(new RiftPlayerListener(services));
         RiftCommands.ready(services);

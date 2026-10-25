@@ -77,6 +77,11 @@ public final class RiftService implements IRiftService {
         return open.computeIfAbsent(owner, id -> store.load(id, stacks.applyAsInt(id)));
     }
 
+    /** The rift if it is in memory right now, without reading it from disk: for what only looks. */
+    public java.util.Optional<Stash> held(UUID owner) {
+        return java.util.Optional.ofNullable(open.get(owner));
+    }
+
     /** Pages came or went: the rift holds that many from now on, and never drops what is in. */
     public void resize(UUID owner) {
         Stash rift = open.get(owner);
