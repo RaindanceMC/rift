@@ -1,34 +1,34 @@
-# Rain's Rift — every line this module says.
+# Rain's Rift: every line this module says.
 #
 # Offered as a *floor*: anything an owner has already written in their own messages.yml wins. See
 # Messages.defineFrom. Every placeholder a line asks for is supplied where it is sent.
 rift:
 
-  only-a-player: "<red>A rift opens around a body, and the console does not have one."
-  not-allowed: "<red>The rift will not open for you."
+  only-a-player: "<red>Only a player can open a rift."
+  not-allowed: "<red>You may not open a rift."
   full: "<red>Your rift is full. More pages come with playtime, or for money."
-  inventory-full: "<yellow>Your pockets are full — what did not fit stayed in the rift."
+  inventory-full: "<yellow>Your inventory is full. What did not fit stayed in the rift."
   took-all: "<green>Pulled <white><count></white> stack(s) out of the rift."
-  took-some: "<yellow>Pulled <white><count></white> stack(s) out; the rest did not fit and stayed behind."
+  took-some: "<yellow>Pulled <white><count></white> stack(s) out. The rest did not fit and stayed in the rift."
   stored-all: "<green>Sent <white><count></white> stack(s) into the rift."
-  stored-some: "<yellow>Sent <white><count></white> stack(s) into the rift; the rift is full, the rest stayed with you."
+  stored-some: "<yellow>Sent <white><count></white> stack(s) into the rift. The rift is full, so the rest stayed with you."
 
   sort:
-    done: "<green>The rift rearranged itself, <white><order></white>."
-    already: "<gray>Already sorted <white><order></white>. The rift approves."
+    done: "<green>Rift sorted <white><order></white>."
+    already: "<gray>The rift is already sorted <white><order></white>."
 
   sell:
     no-shop: "<red>There is no shop on this server to sell to."
-    busy: "<yellow>Hold on — the last sale is still being counted."
+    busy: "<yellow>The last sale is still being processed. Wait a moment."
     nothing: "<yellow>Nothing shown here is something the shop buys."
-    wait: "<yellow>Easy — one sale every couple of seconds."
+    wait: "<yellow>Please wait a moment between sales."
 
   page:
-    grew: "<light_purple>Your rift has grown: <white><pages></white> page(s) now."
-    bought: "<light_purple>Page <white><page></white> tore open, for <white><price></white>."
-    maxed: "<yellow>Your rift is as big as rifts get."
-    not-for-sale: "<yellow>Pages cannot be bought here. Playtime brings them."
+    grew: "<light_purple>Your rift now has <white><pages></white> page(s)."
+    bought: "<light_purple>Page <white><page></white> bought for <white><price></white>."
+    maxed: "<yellow>Your rift has the most pages allowed."
+    not-for-sale: "<yellow>Pages cannot be bought here. They come with playtime."
     not-enough: "<red>You cannot afford the next page yet."
     no-economy: "<red>There is no economy here to pay for a page with."
     refused: "<red>The payment for the page was refused, so nothing was charged."
-    not-saved: "<red>The new page could not be written down, so you were paid back."
+    not-saved: "<red>The new page could not be saved, so you were refunded."
