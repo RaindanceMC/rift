@@ -19,7 +19,7 @@ public final class RiftCommands {
 
     public static List<ModuleCommand> declared() {
         return List.of(
-                ModuleCommand.of("rift", "Open your rift — your own pocket dimension for your things",
+                ModuleCommand.of("rift", "Open your rift, your own storage for your things",
                                 new RiftCommand(RiftCommands::require))
                         .aliased("pv", "playervault")
                         .taking("[search words]")

@@ -62,7 +62,7 @@ public record RiftSettings(
 
         @In("rift/selling") @Title("Selling from the rift")
         @Describe("Whether the rift has Sell this page and Sell everything shown. They sell to the shop at the "
-                + "player's own prices — only plain items, the way /sell does — and need the economy module.")
+                + "player's own prices (only plain items, the way /sell does) and need the economy module.")
         @Key("selling.enabled")
         boolean sellingOn,
 

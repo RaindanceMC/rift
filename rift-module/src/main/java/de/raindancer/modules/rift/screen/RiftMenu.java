@@ -60,7 +60,7 @@ public final class RiftMenu extends Menu implements IRiftScreen {
 
     @Override
     protected Component title() {
-        return Component.text(filter.isActive() ? "Rift — searching" : "Rift");
+        return Component.text(filter.isActive() ? "Rift: searching" : "Rift");
     }
 
     @Override
@@ -219,7 +219,7 @@ public final class RiftMenu extends Menu implements IRiftScreen {
                 Icons.of(Material.EMERALD, "<green>Sell",
                         "<gray>Click: what the shop buys on this page",
                         "<gray>Shift-click: everything " + (filter.isActive() ? "found" : "in the rift"),
-                        "<gray>   — asks first",
+                        "<gray>Shift-click asks first",
                         "<dark_gray>Plain items only, at your /sell prices.",
                         "<dark_gray>Anything else stays in the rift."),
                 reason,
