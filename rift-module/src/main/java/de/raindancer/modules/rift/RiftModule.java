@@ -64,7 +64,6 @@ public final class RiftModule implements FlexModule {
 
         context.core().messages().defineFrom(RiftModule.class.getResourceAsStream("messages.yml"),
                 context.chat().brand()::chatPrefix);
-        context.core().messages().seriousFrom(RiftModule.class.getResourceAsStream("messages-serious.yml"));
 
         int registered = PermissionNodes.register(plugin.getServer());
         if (registered > 0) {
