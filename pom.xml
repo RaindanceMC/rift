@@ -22,7 +22,7 @@
     <properties>
         <rainscore.version>2.10.1</rainscore.version>
         <modules-wrapper.version>1.11.0</modules-wrapper.version>
-        <rift-module.version>0.4.0</rift-module.version>
+        <rift-module.version>0.4.1</rift-module.version>
     </properties>
 
     <modules>
