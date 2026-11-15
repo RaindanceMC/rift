@@ -1,8 +1,8 @@
 id: rift
 title: Your Rift
-summary: A pocket dimension for your things — pages that grow with playtime, search, sorting and selling.
+summary: A private storage for your things with pages that grow with playtime, search, sorting and selling.
 intro: |
-  Pockets full again? Of course they are. {cmd:/rift} opens <white>your own rift</white>: a private vault that nobody else can touch, that follows you everywhere and that grows the longer you stay. I have been told it is bigger on the inside.
+  {cmd:/rift} opens <white>your own rift</white>: a private vault that nobody else can touch and that follows you everywhere. It grows the longer you play.
 icon: ENDER_CHEST
 category: Items & enchantments
 order: 10
@@ -15,13 +15,13 @@ sections:
   - question: What is the rift?
     title: What it is
     text: |
-      Your very own storage, one per player, opened with {run:/rift} (also <white>/pv</white> and <white>/playervault</white>). Whatever you put in stays in, through death, logouts and restarts — it is not in your inventory, so dying cannot spill it.
+      Your very own storage, one per player, opened with {run:/rift} (also <white>/pv</white> and <white>/playervault</white>). Whatever you put in stays in, through death, logouts and restarts. It is not in your inventory, so dying cannot spill it.
 
-      It is made of <white>pages</white>. One page is 36 stacks. A stack here is exactly a stack there: nothing is duplicated and nothing is lost.
+      It is made of <white>pages</white>. One page is 36 stacks. A stack here is the same stack there. Nothing is duplicated and nothing is lost.
   - question: How do I put things in?
     title: Putting things in
     text: |
-      Three ways:
+      There are three ways:
       <white>•</white> <white>Shift-click</white> an item in your own inventory while the rift is open.
       <white>•</white> Drop the item you hold on the cursor onto any slot of the page.
       <white>•</white> Click the chest <white>Put everything in</white>: your inventory goes in, but not the hotbar. Shift-click it and the hotbar goes too. What you wear always stays on you.
@@ -30,9 +30,9 @@ sections:
   - question: How do I take things out?
     title: Taking things out
     text: |
-      Click a stack to take it into your inventory. The hopper button <white>Take out</white> takes everything on the current page; shift-click it and it takes everything in the rift — or everything your search found, if you are searching.
+      Click a stack to take it into your inventory. The hopper button <white>Take out</white> takes everything on the current page; shift-click it and it takes everything in the rift (or everything your search found, if you are searching).
 
-      If your pockets are full, what does not fit is sent back to the rift. Rifts are tidier than people.
+      If your inventory is full, what does not fit stays in the rift.
   - question: How do I find something?
     title: Searching
     text: |
@@ -42,22 +42,22 @@ sections:
   - question: What are kinds?
     title: Kinds
     text: |
-      The button next to the compass narrows the rift to one kind of item — the same tabs the creative inventory has: blocks, tools, food and so on. Click for the next kind, right-click for the one before, shift-click for everything again. It combines with a search.
+      The button next to the compass narrows the rift to one kind of item, the same tabs the creative inventory has: blocks, tools, food and so on. Click for the next kind, right-click for the one before, shift-click for everything again. It combines with a search.
   - question: How do I sort my rift?
     title: Sorting
     text: |
-      The comparator button sorts the rift. Click: sort now. Right-click: change the order — <white>by kind</white>, <white>A to Z</white> or <white>biggest stacks first</white>. Shift-click: <white>keep it sorted</white> on or off, so everything you put in lands in its place by itself.
+      The comparator button sorts the rift. Click: sort now. Right-click: change the order: <white>by kind</white>, <white>A to Z</white> or <white>biggest stacks first</white>. Shift-click: <white>keep it sorted</white> on or off, so everything you put in lands in its place by itself.
 
-      Do not even open it: {cmd:/rift sort} sorts in your own order without opening anything. Your order and the keep-sorted choice are remembered.
+      {cmd:/rift sort} sorts in your own order without opening the rift. Your order and the keep-sorted choice are remembered.
   - question: How many pages do I get?
     title: Pages
     text: |
-      You start with <white>{setting:rift:pages.starting}</white> page(s). More come four ways:
-      <white>•</white> {if:rift:pages.free-every-hours > 0}<white>Playtime:</white> one free page for every <white>{setting:rift:pages.free-every-hours|hours}</white> you actually play — time spent away does not count — up to <white>{setting:rift:pages.most-free}</white> free page(s) in all.{else}<white>Playtime:</white> not on this server; nobody gets free pages.{/if}
+      You start with <white>{setting:rift:pages.starting}</white> page(s). More come in three ways:
+      <white>•</white> {if:rift:pages.free-every-hours > 0}<white>Playtime:</white> one free page for every <white>{setting:rift:pages.free-every-hours|hours}</white> you actually play (time spent away does not count), up to <white>{setting:rift:pages.most-free}</white> free page(s) in all.{else}<white>Playtime:</white> not on this server; nobody gets free pages.{/if}
       <white>•</white> {if:rift:pages.buying}<white>Buying</white> with money, see below.{else}<white>Buying:</white> not possible here.{/if}
       <white>•</white> <white>A rank's bonus</white> from the staff, as extra pages on top.
 
-      Whatever the way, one rift never has more than <white>{setting:rift:pages.most}</white> pages. The page button (the ender eye) shows where you stand, how many came from where and when the next free page arrives. You are told in chat when your rift grows.
+      One rift never has more than <white>{setting:rift:pages.most}</white> pages. The page button (the ender eye) shows where you stand, how many came from where and when the next free page arrives. You are told in chat when your rift grows.
   - question: Can I buy pages?
     title: Buying pages
     when: rift:pages.buying
@@ -70,9 +70,9 @@ sections:
     when: rift:selling.enabled && @module:economy
     permission: rains.rift.sell
     text: |
-      Yes: the emerald button. Click it to sell what the shop buys on this page, or shift-click to sell everything in the rift (or everything found) — that one asks first.
+      Yes, with the emerald button. Click it to sell what the shop buys on this page, or shift-click to sell everything in the rift (or everything found). That one asks first.
 
-      Only plain items are sold, at your own {cmd:/sell} prices; anything the shop does not buy stays in the rift. Between two sales you wait <white>{setting:rift:selling.wait-seconds|seconds}</white>, so a held-down click cannot flood the shop. If the shop refuses a stack, it goes back into the rift, not into the void.
+      Only plain items are sold, at your own {cmd:/sell} prices; anything the shop does not buy stays in the rift. Between two sales you wait <white>{setting:rift:selling.wait-seconds|seconds}</white>, so a held-down click cannot flood the shop. If the shop refuses a stack, it goes back into the rift.
   - question: What if I lose the right to it?
     title: Permissions
     text: |
@@ -80,9 +80,9 @@ sections:
   - question: What happens when the pages get fewer?
     title: Shrinking
     text: |
-      If the limit is lowered or a bonus ends, <white>nothing is deleted</white>. A rift that holds more than it now may keeps everything and simply refuses new things until it is under the limit again.
+      If the limit is lowered or a bonus ends, <white>nothing is deleted</white>. A rift that holds more than it now may keeps everything and refuses new items until it is under the limit again.
   - question: How do I grant bonus pages?
     title: Bonus pages (staff)
     permission: rainscore.help.manage
     text: |
-      Give a player or a group the node <white>rains.rift.pages.N</white> — for example <white>rains.rift.pages.3</white> for three extra pages. If somebody holds several, the <white>highest</white> counts, not the sum. The total is still capped by <white>{setting:rift:pages.most}</white> pages. {cmd:/settings} holds all the numbers.
+      Give a player or a group the node <white>rains.rift.pages.N</white>, for example <white>rains.rift.pages.3</white> for three extra pages. If somebody holds several, the <white>highest</white> counts, not the sum. The total is still capped by <white>{setting:rift:pages.most}</white> pages. {cmd:/settings} holds all the numbers.
