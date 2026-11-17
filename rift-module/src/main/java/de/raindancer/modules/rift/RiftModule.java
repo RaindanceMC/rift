@@ -40,7 +40,7 @@ import java.util.UUID;
  */
 public final class RiftModule implements FlexModule {
 
-    private static final ModuleInfo INFO = ModuleInfo.of("rift", "Rift", "0.4.1")
+    private static final ModuleInfo INFO = ModuleInfo.of("rift", "Rift", "0.5.0")
             .describedAs("A pocket dimension for your things: a vault of pages that grows with playtime and money, "
                     + "with search, kinds, sorting and selling.")
             .by("Raindancer118");
@@ -97,6 +97,16 @@ public final class RiftModule implements FlexModule {
             }
         } catch (LinkageError olderCore) {
             log.info("RainsCore is older than 2.10.0: no rift screen until it is updated.");
+        }
+
+        // /preferences — Core 2.103.0; the sort button in the rift stays where there is none.
+        try {
+            for (de.raindancer.core.ui.preference.Preference choice : List.of(RiftOffers.sort(rift), RiftOffers.autoSort(rift))) {
+                de.raindancer.core.ui.preference.Preferences.offer(plugin, choice);
+                context.closeWith(() -> de.raindancer.core.ui.preference.Preferences.withdraw(choice));
+            }
+        } catch (LinkageError olderCore) {
+            log.info("RainsCore is older than 2.103.0: the sort settings are not on /preferences.");
         }
 
         context.listener(new RiftPlayerListener(services));
