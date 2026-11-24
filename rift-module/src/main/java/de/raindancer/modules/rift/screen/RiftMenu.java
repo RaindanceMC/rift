@@ -220,8 +220,8 @@ public final class RiftMenu extends Menu implements IRiftScreen {
                         "<gray>Click: what the shop buys on this page",
                         "<gray>Shift-click: everything " + (filter.isActive() ? "found" : "in the rift"),
                         "<gray>Shift-click asks first",
-                        "<dark_gray>Plain items only, at your /sell prices.",
-                        "<dark_gray>Anything else stays in the rift."),
+                        "<dark_gray>At your /sell prices, enchanted and worn too.",
+                        "<dark_gray>What the shop refuses stays in the rift."),
                 reason,
                 event -> {
                     if (!stillAllowed() || !waited()) {

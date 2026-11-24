@@ -72,7 +72,7 @@ sections:
     text: |
       Yes, with the emerald button. Click it to sell what the shop buys on this page, or shift-click to sell everything in the rift (or everything found). That one asks first.
 
-      Only plain items are sold, at your own {cmd:/sell} prices; anything the shop does not buy stays in the rift. Between two sales you wait <white>{setting:rift:selling.wait-seconds|seconds}</white>, so a held-down click cannot flood the shop. If the shop refuses a stack, it goes back into the rift.
+      Everything the shop takes is sold, at your own {cmd:/sell} prices: plain items, enchanted or worn tools, enchanted books, potions, fish and full shulker boxes. Only cash, insured items and the rare thing the shop refuses stay in the rift. Between two sales you wait <white>{setting:rift:selling.wait-seconds|seconds}</white>, so a held-down click cannot flood the shop. If the shop refuses a stack, it goes back into the rift.
   - question: What if I lose the right to it?
     title: Permissions
     text: |
